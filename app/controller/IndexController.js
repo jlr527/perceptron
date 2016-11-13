@@ -32,17 +32,17 @@ app.controller('IndexController', function ($scope) {
 			switch(tipo){
 				case 'and':
 					funcion = $scope.funcion.and;
-					$scope.console.push('========== Procesando funcion AND ============');
+					$scope.console.push('============== Procesando funcion AND ================');
 				break;
 
 				case 'or':
 					funcion = $scope.funcion.or;
-					$scope.console.push('========== Procesando funcion OR ============');
+					$scope.console.push('============== Procesando funcion OR =================');
 				break;
 
 				case 'xor':
 					funcion = $scope.funcion.xor;
-					$scope.console.push('========== Procesando funcion XOR ============');
+					$scope.console.push('============== Procesando funcion XOR ================');
 				break;
 			}
 			var j = 1;
@@ -60,23 +60,40 @@ app.controller('IndexController', function ($scope) {
 					i = -1;
 				}
 				j++;
-				if(i == funcion.length-1)
+				if(i == funcion.length-1){
+					$scope.console.push('Los Pesos optimos son: ## w1: ' + pesos.w1.toFixed(2) +'- w2: ' + pesos.w2.toFixed(2) + '- w3: ' + pesos.w3.toFixed(2)+ ' ##');
 					$scope.console.push('================== Fin procesamiento ====================');
+				}
 				
 			};
 			
+		},
+		probar: function() {
+			var util = this;
+			var pesos = $scope.neurona.pesos;
+			var test = $scope.test;
+			var result = util.resolverEcuacionActivacion(test.x1, test.x2, pesos.w1, pesos.w2, pesos.w3);
+
+			return util.resolver(result);
 		}
 	};
+	$scope.test = {
+		x1: '',
+		x2: ''
+	}
 	$scope.console = [];
 	$scope.eventos = {
 		clickEntrenamiento: function() {
 			utilities.aprender($scope.funcion.actual);
 		},
 		clickProbar: function() {
-
+			console.log('hello');
+			$scope.console.push('=========================== TEST NEURONA ============================');
+			$scope.console.push($scope.test.x1 + ' ' + $scope.funcion.actual + ' ' + $scope.test.x2 + ' = ' + utilities.probar());
+			$scope.console.push('========================= FIN TEST NEURONA ==========================');
 		},
-		clickDetenerEntrenamiento: function() {
-
+		clickLimpiarConsola: function() {
+			$scope.console = [];
 		} 
 	};
 	$scope.funcion = {

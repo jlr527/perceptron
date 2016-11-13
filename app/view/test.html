@@ -9,16 +9,16 @@
 		    <div class="card-reveal">
 		      	<div class="row">
 		      		<div class="input-field col s6">						
-						<input type="number" name="test1" id="test1">
+						<input type="number" name="test1" id="test1" ng-model="test.x1">
 						<label for="test1">X1</label>
 					</div>
 					<div class="input-field col s6">						
-						<input type="number" name="test2" id="test2">
+						<input type="number" name="test2" id="test2" ng-model="test.x2">
 						<label for="test2">X2</label>
 					</div>
 					<div class="row">
 						<div class="col s3 offset-s9">
-							<button class="btn waves-effect waves-orange blue darken-1" type="submit" name="action">Ejecutar
+							<button class="btn waves-effect waves-orange blue darken-1" type="submit" name="action" ng-click="eventos.clickProbar()">Ejecutar
 								<i class="material-icons right">settings_input_composite</i>
 							</button>
 						</div>
