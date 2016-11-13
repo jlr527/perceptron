@@ -8,23 +8,32 @@
 		    </div>
 		    <div class="card-reveal">
 		      	<div class="row">
-		      		<div class="input-field col s6">						
-						<input type="number" name="test1" id="test1" ng-model="test.x1">
-						<label for="test1">X1</label>
-					</div>
-					<div class="input-field col s6">						
-						<input type="number" name="test2" id="test2" ng-model="test.x2">
-						<label for="test2">X2</label>
-					</div>
-					<div class="row">
-						<div class="col s3 offset-s9">
-							<button class="btn waves-effect waves-orange blue darken-1" type="submit" name="action" ng-click="eventos.clickProbar()">Ejecutar
-								<i class="material-icons right">settings_input_composite</i>
-							</button>
+		      		<form name="formTest">
+			      		<div class="input-field col s6">						
+							<input type="number" name="test1" id="test1" ng-model="test.x1" required pattern="1|-1">
+							<label for="test1">X1</label>
+							<span ng-show="formTest.test1.$error.required">El campo es obligatorio.</span>
+							<span ng-show="formTest.test1.$error.pattern">Rango incorrecto.</span>
 						</div>
-					</div>
+						<div class="input-field col s6">						
+							<input type="number" name="test2" id="test2" ng-model="test.x2" required pattern="1|-1">
+							<label for="test2">X2</label>
+							<span ng-show="formTest.test2.$error.required">El campo es obligatorio.</span>
+							<span ng-show="formTest.test2.$error.pattern">Rango incorrecto.</span>
+						</div>
+						<div class="row">
+							<div class="col s3 offset-s9">
+								<button class="btn waves-effect waves-light blue darken-1" type="submit" name="action" ng-click="eventos.clickProbar()" ng-disabled='!formTest.$valid'>Ejecutar
+									<i class="material-icons right">settings_input_composite</i>
+								</button>
+							</div>
+						</div>
+					</form>
 		      	</div>	
 		    </div>
+		    <div class="card-action">
+            	Resultado: {{response}}
+            </div>
         </div>
     </div>
 </section>

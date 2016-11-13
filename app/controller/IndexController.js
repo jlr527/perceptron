@@ -78,8 +78,8 @@ app.controller('IndexController', function ($scope) {
 		}
 	};
 	$scope.test = {
-		x1: '',
-		x2: ''
+		x1: null,
+		x2: null
 	}
 	$scope.console = [];
 	$scope.eventos = {
@@ -91,6 +91,7 @@ app.controller('IndexController', function ($scope) {
 			$scope.console.push('=========================== TEST NEURONA ============================');
 			$scope.console.push($scope.test.x1 + ' ' + $scope.funcion.actual + ' ' + $scope.test.x2 + ' = ' + utilities.probar());
 			$scope.console.push('========================= FIN TEST NEURONA ==========================');
+			$scope.response = $scope.test.x1 + ' ' + $scope.funcion.actual + ' ' + $scope.test.x2 + ' = ' + utilities.probar();
 		},
 		clickLimpiarConsola: function() {
 			$scope.console = [];
@@ -108,6 +109,9 @@ app.controller('IndexController', function ($scope) {
 			 {x1: -1, x2: 1, y: 1 },
 			 {x1: -1, x2: -1, y: -1 }]
 	};
+
+	$scope.patternNombre=/^[a-zA-Z]*$/;
+
 	$scope.neurona = {
 		e: 0.5,
 		pesos: {

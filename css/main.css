@@ -117,3 +117,12 @@ header .container i{
 .result label, .result span{
 	font-size: 1.2em;
 }
+
+input ~ span{
+	color:red;
+}
+
+.card-action{
+	font-size: 1.5em;
+	color:darkviolet;
+}
