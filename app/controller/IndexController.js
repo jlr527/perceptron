@@ -110,8 +110,6 @@ app.controller('IndexController', function ($scope) {
 			 {x1: -1, x2: -1, y: -1 }]
 	};
 
-	$scope.patternNombre=/^[a-zA-Z]*$/;
-
 	$scope.neurona = {
 		e: 0.5,
 		pesos: {
