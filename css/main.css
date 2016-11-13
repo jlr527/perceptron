@@ -35,7 +35,7 @@ header{
 header .container{
 	padding: 29px;
 	color: white;
-	background-image: url('images/redneuronal.jpg');
+	background-image: url('redneuronal.jpg');
 }
 
 header .container i{
@@ -61,7 +61,7 @@ header .container i{
   font-size: 1.3em;
 }
 
-#wrap li:before {
+#wrap li:before, #wrap span:before {
 	content: 'perceptron@home:~$ ';
 }
 
@@ -69,16 +69,13 @@ header .container i{
 	height: 300px;
 	cursor: help;
 	overflow-y: auto;
+	border: solid 1px blue;
 }
 
-span:after {
+#wrap span:after {
   content: "_";
   opacity: 0;
   animation: cursor 1s infinite;
-}
-
-span:before{
-	content: 'perceptron@home:~$ ';
 }
 
 @keyframes cursor {
@@ -107,7 +104,7 @@ span:before{
 
 .headconsole{
 	margin-bottom: 0;
-	background-color: ;
+	border: solid 1px blue;
 }
 
 .headconsole label{
@@ -119,4 +116,8 @@ span:before{
 .headconsole i{
 	position: absolute;
 	margin: 4px;
+}
+
+.result label, .result span{
+	font-size: 1.2em;
 }
