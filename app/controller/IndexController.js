@@ -78,8 +78,8 @@ app.controller('IndexController', function ($scope) {
 		}
 	};
 	$scope.test = {
-		x1: null,
-		x2: null
+		x1: 1,
+		x2: 1
 	}
 	$scope.console = [];
 	$scope.eventos = {

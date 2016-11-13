@@ -11,13 +11,13 @@
 		      		<form name="formTest">
 			      		<div class="input-field col s6">						
 							<input type="number" name="test1" id="test1" ng-model="test.x1" required pattern="1|-1">
-							<label for="test1">X1</label>
+							<label for="test1" class="active">X1</label>
 							<span ng-show="formTest.test1.$error.required">El campo es obligatorio.</span>
 							<span ng-show="formTest.test1.$error.pattern">Rango incorrecto.</span>
 						</div>
 						<div class="input-field col s6">						
 							<input type="number" name="test2" id="test2" ng-model="test.x2" required pattern="1|-1">
-							<label for="test2">X2</label>
+							<label for="test2" class="active">X2</label>
 							<span ng-show="formTest.test2.$error.required">El campo es obligatorio.</span>
 							<span ng-show="formTest.test2.$error.pattern">Rango incorrecto.</span>
 						</div>
