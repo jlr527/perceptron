@@ -7,15 +7,15 @@
 			</div>	 
 			<div class="row">
 				<div class="input-field col s4">						
-					<input type="number" name="w1" id="w1" string-to-number ng-model="neurona.pesos.w1">
+					<input type="number" name="w1" id="w1" step="any" ng-model="neurona.pesos.w1">
 					<label for="w1" class="active">W1</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="number" name="w2" id="w2" string-to-number ng-model="neurona.pesos.w2">
+					<input type="number" name="w2" id="w2" step="any" ng-model="neurona.pesos.w2">
 					<label for="w2" class="active">W2</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="number" name="w3" id="w3" string-to-number ng-model="neurona.pesos.w3">
+					<input type="number" name="w3" id="w3" step="any" ng-model="neurona.pesos.w3">
 					<label for="w3" class="active">W3</label>
 				</div>
 			</div>
@@ -24,27 +24,25 @@
 			</div>
 			<div class="row">
 				<div class="col s4">
-					<input type="radio" name="Functions" value="and" id="and">
+					<input type="radio" name="Functions" value="and" id="and" ng-model="funcion.actual">
 					<label for="and">AND</label>
 				</div>
 				<div class="col s4">
-					<input type="radio" name="Functions" value="or" id="or">
+					<input type="radio" name="Functions" value="or" id="or" ng-model="funcion.actual">
 					<label for="or">OR</label>
 				</div>
 				<div class="col s4">
-					<input type="radio" name="Functions" value="xor" id="xor">
+					<input type="radio" name="Functions" value="xor" id="xor" ng-model="funcion.actual">
 					<label for="xor">XOR</label>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col s3 offset-s9">
-				<button class="btn waves-effect waves-orange blue darken-1" type="submit" name="action">Entrenar
+				<button class="btn waves-effect waves-orange blue darken-1" type="submit" name="action" ng-click="eventos.clickEntrenamiento()">Entrenar
 					<i class="material-icons right">settings_input_composite</i>
 				</button>
 			</div>
 		</div>
 	</form>
 </section>
-
-{{neurona.pesos}}

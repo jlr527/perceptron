@@ -6,10 +6,8 @@
 	</div>
 	<div class="row black">
 		<div class="col s12 card-panel z-depth-3 black white-text" id="wrap">
-			<ul class="list">
-				<li>value</li>
-				<li>entranamiento</li>
-				<li>datas</li>
+			<ul class="list" ng-repeat="consol in console track by $index">
+				<li>{{consol}}</li>
 			</ul>
 			<span></span>
 		</div>

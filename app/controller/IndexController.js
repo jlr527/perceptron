@@ -26,49 +26,70 @@ app.controller('IndexController', function ($scope) {
 		},
 		aprender: function(tipo) {
 			var util = this;
-			var salir = false;
 			var funcion;
 			var pesos = $scope.neurona.pesos;
 
 			switch(tipo){
 				case 'and':
 					funcion = $scope.funcion.and;
+					$scope.console.push('========== Procesando funcion AND ============');
 				break;
 
 				case 'or':
 					funcion = $scope.funcion.or;
+					$scope.console.push('========== Procesando funcion OR ============');
 				break;
 
 				case 'xor':
 					funcion = $scope.funcion.xor;
+					$scope.console.push('========== Procesando funcion XOR ============');
 				break;
 			}
-
-			for(var i = 0, i < funcion.lenght; i++) {
+			var j = 1;
+			for(var i = 0; i < funcion.length; i++) {
 				var value = funcion[i];
 				var result = util.resolverEcuacionActivacion(value.x1, value.x2, pesos.w1, pesos.w2, pesos.w3);
 
-				if(util.resolver(result) == -1){
+				$scope.console.push('Iteracion #'+j);
+				$scope.console.push('w1: ' + pesos.w1.toFixed(2) +'- w2: ' + pesos.w2.toFixed(2) + '- w3: ' + pesos.w3.toFixed(2)+ '- resultado:' + result.toFixed(2));
+				if(util.resolver(result) != value.y){
+					$scope.console.push('Recalculando pesos...');
 					pesos.w1 = util.resolverEcuacionpeso(pesos.w1, value.y, value.x1);
 					pesos.w2 = util.resolverEcuacionpeso(pesos.w2, value.y, value.x2);
-					pesos.w3 = util.resolverEcuacionpeso(pesos.w1, value.y, -1);
-					i = 0;
+					pesos.w3 = util.resolverEcuacionpeso(pesos.w3, value.y, -1);
+					i = -1;
 				}
+				j++;
+				if(i == funcion.length-1)
+					$scope.console.push('================== Fin procesamiento ====================');
+				
 			};
 			
 		}
 	};
+	$scope.console = [];
+	$scope.eventos = {
+		clickEntrenamiento: function() {
+			utilities.aprender($scope.funcion.actual);
+		},
+		clickProbar: function() {
 
+		},
+		clickDetenerEntrenamiento: function() {
+
+		} 
+	};
 	$scope.funcion = {
+		actual: 'and',
 		and:[{x1: 1, x2: 1, y: 1 },
-			 {x1: 1, x2: 0, y: -1 },
-			 {x1: 0, x2: 1, y: -1 },
-			 {x1: 0, x2: 0, y: -1 }],
+			 {x1: 1, x2: -1, y: -1 },
+			 {x1: -1, x2: 1, y: -1 },
+			 {x1: -1, x2: -1, y: -1 }],
 
 		or: [{x1: 1, x2: 1, y: 1 },
-			 {x1: 1, x2: 0, y: 1 },
-			 {x1: 0, x2: 1, y: 1 },
-			 {x1: 0, x2: 0, y: -1 }]
+			 {x1: 1, x2: -1, y: 1 },
+			 {x1: -1, x2: 1, y: 1 },
+			 {x1: -1, x2: -1, y: -1 }]
 	};
 	$scope.neurona = {
 		e: 0.5,
@@ -92,5 +113,9 @@ app.controller('IndexController', function ($scope) {
 }).directive('process', function() {
   return {
     templateUrl: 'app/view/process.html'
+  };
+}).directive('test', function() {
+  return {
+    templateUrl: 'app/view/test.html'
   };
 });
