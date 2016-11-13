@@ -1,0 +1,51 @@
+<!--Creation of form for training-->
+<section class="form">
+	<div class="container">
+		<form>
+			<div class="row">
+				<div class="">
+					<h3>Pesos</h3>
+				</div>	
+				<div class="row">
+					<div class="input-field col s4">						
+						<input type="number" name="w1" id="w1">
+						<label for="w1">W1</label>
+					</div>
+					<div class="input-field col s4">
+						<input type="number" name="w2" id="w2">
+						<label for="w2">W2</label>
+					</div>
+					<div class="input-field col s4">
+						<input type="number" name="w3" id="w3">
+						<label for="w3">W3</label>
+					</div>
+				</div>
+				<div>
+					<h3>Funciones</h3>
+				</div>
+				<div class="row">
+					<div class="col s4">
+						<input type="radio" name="Functions" value="and" id="and">
+						<label for="and">AND</label>
+					</div>
+					<div class="col s4">
+						<input type="radio" name="Functions" value="or" id="or">
+						<label for="or">OR</label>
+					</div>
+					<div class="col s4">
+						<input type="radio" name="Functions" value="xor" id="xor">
+						<label for="xor">XOR</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s3 offset-s9">
+					<button class="btn waves-effect waves-orange blue darken-1" type="submit" name="action">Entrenar
+						<i class="material-icons right">settings_input_composite</i>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+{{neurona.pesos}}
