@@ -1,4 +1,4 @@
-type="radio"]:checked+label:after, 
+[type="radio"]:checked+label:after, 
 [type="radio"].with-gap:checked+label:after
 {
 	background-color: #2196F3 !important;
@@ -40,4 +40,83 @@ header .container{
 
 header .container i{
 	font-size: 76px;
+}
+
+
+.form form{
+	margin-bottom: 10px;
+	border-bottom: solid 2px;
+}
+
+.result{
+    margin-top: 5%;
+}
+
+#wrap ul{
+	margin: 0;
+}
+
+#wrap  span,#wrap  li {
+  font-family: monospace;
+  font-size: 1.3em;
+}
+
+#wrap li:before {
+	content: 'perceptron@home:~$ ';
+}
+
+.console .row.black{
+	height: 300px;
+	cursor: help;
+	overflow-y: auto;
+}
+
+span:after {
+  content: "_";
+  opacity: 0;
+  animation: cursor 1s infinite;
+}
+
+span:before{
+	content: 'perceptron@home:~$ ';
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#wrap {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.headconsole{
+	margin-bottom: 0;
+	background-color: ;
+}
+
+.headconsole label{
+	font-size: 1.5em;
+	color: black;
+	margin: 34px;
+}
+
+.headconsole i{
+	position: absolute;
+	margin: 4px;
 }
