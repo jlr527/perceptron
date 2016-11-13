@@ -19,11 +19,6 @@ input[type=number]:focus:not([readonly])+label{
 	border-bottom: 1px solid #2196F3 !important;
 	box-shadow: 0 1px 0 0 #2196F3 !important;
 }
-
-.container{
-	height: 100%;
-}
-
 .container.white{
 	padding: 35px;
 }
@@ -33,6 +28,7 @@ header{
 }
 
 header .container{
+	height: 100%;
 	padding: 29px;
 	color: white;
 	background-image: url('images/redneuronal.jpg');
