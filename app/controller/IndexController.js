@@ -14,12 +14,13 @@ app.controller('IndexController', function ($scope) {
 		resolverEcuacionGeneral: function(x1, w1, x2, w2, t) {
 			return (x1*w1)+(x2*w2)+(-1*t);
 		},
-		resolverEcuacionpeso(): function(w, e, x1, x2) {
+		resolverEcuacionpeso: function(w, e, x1, x2) {
 			return w+(e*x1*x2);
 		}
 	}
 
 	$scope.neurona = {
+
 		pesos: {
 			w1: utilities.random(),
 			w2: utilities.random(),
